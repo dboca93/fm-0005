@@ -1,0 +1,397 @@
+/*  Modern CSS reset - https://piccalil.li/blog/a-modern-css-reset/ */
+/* Box sizing rules */
+/* *here we have the font dimensions:*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  --ff1: "League Spartan", sans-serif;
+  --sfs: 1.5rem; /* standard font size*/
+  --white: hsl(0, 0%, 100%); /*back+text white*/
+  --dpt: #512051; /* dark purple text*/
+  --lpt: #927b91; /* light purple text*/
+  --spt: hsl(333, 80%, 67%); /* soft pink text*/
+  --dgt: #937b92; /*spec --text below 10 000?*/
+  --rbc: #f7f2f7; /*review background color*/
+  --out: 1px solid black; /*use for outline*/
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: var(--rbc);
+  font-family: var(--ff1);
+  font-size: ;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* * end of the reset*/
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* *======NEUTRAL DESIGN SPACE========== */
+
+/* background-Image_Mobile_top_left: */
+.top-left {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* do the positional styling for mobile devices
+first, then color -- then desktop positional*/
+.central-grid > .heading-area > h2 {
+  color: var(--dpt);
+  font-size: 4rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.central-grid > .heading-area > p {
+  text-align: center;
+  font-size: 1.9rem;
+  color: var(--lpt);
+  font-weight: 500;
+  line-height: 2.5rem;
+}
+
+.graphic-br-mobile {
+  position: fixed;
+  z-index: -1;
+  bottom: -27.5rem;
+  right: 0;
+}
+
+.box {
+  width: 32.7rem;
+  height: 24.8rem;
+  background-color: #512051;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+.box-head {
+  display: flex;
+  flex-direction: row;
+}
+
+.name {
+  padding-left: 2rem;
+}
+
+.box-head > .name > h3 {
+  font-size: 1.7rem;
+  color: var(--white);
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+.box-head > .name > h4 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--spt);
+  line-height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.box > p {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+  margin-top: 2rem;
+}
+
+.selfie > img {
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+.review-area {
+  display: flex;
+  row-gap: 1.5rem;
+  flex-direction: column;
+  margin-top: 4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.review-area > .review {
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-align: center;
+  height: 7.8rem;
+  color: var(--dpt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e5e5;
+  border-radius: 1rem;
+}
+.review-area > .review > .stars > span {
+  color: #ef9546;
+  margin-bottom: 1rem;
+}
+
+/* *======MOBILE DESIGN SPACE========== */
+
+@media only screen and (max-width: 720px) {
+  .central-grid {
+    z-index: 999;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4rem;
+    margin: 3rem auto 0;
+  }
+
+  .central-grid > h2,
+  .central-grid > p {
+    padding: 0 1rem;
+  }
+
+  .central-grid > p {
+    padding-top: 1.7rem;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* *this is beginning of the personal review area*/
+
+  .personal-review {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    row-gap: 2rem;
+  }
+}
+
+/* *The following is the desktop version of the 
+* site, we should use the mobile code whenever
+* possible, but if it fits both areas we should 
+* add to the neutral area at the the top, 
+* rather than having it printed twice in both 
+* mobile and desktop design areas. 
+ */
+
+/* *======DESKTOP DESIGN SPACE========== */
+
+@media only screen and (min-width: 721px) {
+  .central-grid {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1.7rem 1fr;
+    padding: 7rem 16.5rem 7rem 16.5rem;
+  }
+  /*! grid layout desktop here */
+
+  .heading-area {
+    grid-area: 1 / 1 / 1 / 3;
+  }
+
+  .review-area {
+    grid-area: 1 / 3 / 1 / 6;
+  }
+
+  .personal-review,
+  .heading-area,
+  .review-area {
+    /* max-height: 10vh; to change */
+  }
+
+  .personal-review {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    grid-area: 3 / 1 / 3 / 6;
+  }
+
+  .review-area {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .review-area > .review {
+    height: 5.6rem;
+    width: 45rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .review-area > .review > .stars {
+    padding-top: .35rem;
+    margin-right: 3.25rem;
+  }
+
+  .review-area > .review:nth-child(1) {
+    display: flex;
+    align-self: flex-end;
+    justify-self: start;
+    margin-right: 12rem;
+    margin-bottom: -4rem;
+    margin-top: -1.75rem;
+  }
+
+  .review-area > .review:nth-child(3) {
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: 0rem;
+    margin-right: 3rem;
+  }
+
+  .review-area > .review:nth-child(2) {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 8rem;
+    margin-bottom: -4rem;
+  }
+
+  .personal-review > article:nth-child(2) {
+    flex-direction: column;
+    align-self: center;
+  }
+  .personal-review > article:nth-child(3) {
+    flex-direction: column;
+    align-self: end;
+  }
+
+  .central-grid > .heading-area > h2 {
+
+    text-align: left;
+    max-width: 44.5rem;
+    font-size: 5.6rem;
+    line-height: 4.8rem;
+    font-weight: 700;
+}
+
+.central-grid > .heading-area > p {
+  text-align: left; 
+  font-weight: 500; 
+  font-size: 1.9rem;
+  line-height: 2.5rem;
+  padding-top: 1.6rem;
+}
+
+.graphic-br-mobile {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  height: 87.3rem;
+  width: 178.5rem;
+  left: 0rem;
+  top: 12.7rem;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
