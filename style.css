@@ -1,6 +1,19 @@
 /*  Modern CSS reset - https://piccalil.li/blog/a-modern-css-reset/ */
 /* Box sizing rules */
-/* *here we have the font dimensions:*/
+
+/* *here we have the font dimensions:
+
+* 1. use the picture element to address the
+* b-image issues.
+ 
+* 2. Use min-width to address the collapse 
+* issues we keep on seeing.
+
+* 3. Try using negative margins to bring 
+* the purple boxes at the bottom closer 
+* together, to give the page a slightly 
+* more organix appearance. 
+*/
 
 *,
 *::before,
@@ -52,7 +65,7 @@ body {
   line-height: 1.5;
   background-color: var(--rbc);
   font-family: var(--ff1);
-  font-size: ;
+  font-size: 1.6rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -107,17 +120,18 @@ select {
 }
 
 /* *======NEUTRAL DESIGN SPACE========== */
-
-/* background-Image_Mobile_top_left: */
 .top-left {
   z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* do the positional styling for mobile devices
-first, then color -- then desktop positional*/
-.central-grid > .heading-area > h2 {
+.heading-area {
+  padding-top: 1rem; 
+  padding-left: 1rem;
+}
+
+.heading-area > h2 {
   color: var(--dpt);
   font-size: 4rem;
   line-height: 3.6rem;
@@ -125,19 +139,13 @@ first, then color -- then desktop positional*/
   text-align: center;
 }
 
-.central-grid > .heading-area > p {
+ .heading-area > p {
+  margin-top: 1rem;
   text-align: center;
   font-size: 1.9rem;
   color: var(--lpt);
   font-weight: 500;
   line-height: 2.5rem;
-}
-
-.graphic-br-mobile {
-  position: fixed;
-  z-index: -1;
-  bottom: -27.5rem;
-  right: 0;
 }
 
 .box {
@@ -215,7 +223,7 @@ first, then color -- then desktop positional*/
 
 /* *======MOBILE DESIGN SPACE========== */
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1200px) {
   .central-grid {
     z-index: 999;
     width: 90%;
@@ -239,8 +247,6 @@ first, then color -- then desktop positional*/
     padding-right: 1rem;
   }
 
-  /* *this is beginning of the personal review area*/
-
   .personal-review {
     margin: 0 auto;
     display: flex;
@@ -249,57 +255,56 @@ first, then color -- then desktop positional*/
     justify-content: center;
     margin-top: 4rem;
     margin-bottom: 3rem;
-    row-gap: 2rem;
+    row-gap: 1rem;
   }
 }
 
-/* *The following is the desktop version of the 
-* site, we should use the mobile code whenever
-* possible, but if it fits both areas we should 
-* add to the neutral area at the the top, 
-* rather than having it printed twice in both 
-* mobile and desktop design areas. 
- */
-
 /* *======DESKTOP DESIGN SPACE========== */
 
-@media only screen and (min-width: 721px) {
+@media only screen and (min-width: 1200px) {
   .central-grid {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1.7rem 1fr;
-    padding: 7rem 16.5rem 7rem 16.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr .1rem 1fr;
+    
   }
-  /*! grid layout desktop here */
+  main {
+    margin: 0rem 8rem 0rem 8rem; 
+  }
+
+  .person-1 {
+    margin-left: 2rem;
+  }
+
+  .person-3 {
+    margin-right: 3rem;
+  }
+
+  .upper-flex-wrap {
+    display: flex; 
+    margin-top: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+  }
 
   .heading-area {
-    grid-area: 1 / 1 / 1 / 3;
-  }
-
-  .review-area {
-    grid-area: 1 / 3 / 1 / 6;
-  }
-
-  .personal-review,
-  .heading-area,
-  .review-area {
-    /* max-height: 10vh; to change */
+    flex: 1 1 auto; 
   }
 
   .personal-review {
+    max-height: 34rem;
+    padding-bottom: 2rem;
     display: flex;
     gap: 1rem;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    grid-area: 3 / 1 / 3 / 6;
-  }
+    grid-area: 3 / 1 / 3 / 3;
+    }
 
   .review-area {
+    flex: 1 1 auto; 
     margin-top: 0;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
   }
@@ -307,14 +312,11 @@ first, then color -- then desktop positional*/
   .review-area > .review {
     height: 5.6rem;
     width: 45rem;
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
   }
 
   .review-area > .review > .stars {
-    padding-top: .35rem;
+    padding-top: 0.35rem;
     margin-right: 3.25rem;
   }
 
@@ -350,48 +352,24 @@ first, then color -- then desktop positional*/
     align-self: end;
   }
 
-  .central-grid > .heading-area > h2 {
-
+    .heading-area > h2 {
     text-align: left;
     max-width: 44.5rem;
     font-size: 5.6rem;
     line-height: 4.8rem;
-    font-weight: 700;
+  }
+
+    .heading-area > p {
+    text-align: left;
+    line-height: 2.5rem;
+    padding-top: 1.6rem;
+    max-width: 40rem;
+  }
+
+  .graphic-br-mobile {
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+  }
 }
-
-.central-grid > .heading-area > p {
-  text-align: left; 
-  font-weight: 500; 
-  font-size: 1.9rem;
-  line-height: 2.5rem;
-  padding-top: 1.6rem;
-}
-
-.graphic-br-mobile {
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-  height: 87.3rem;
-  width: 178.5rem;
-  left: 0rem;
-  top: 12.7rem;
-}
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
