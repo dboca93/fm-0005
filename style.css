@@ -1,27 +1,9 @@
-/*  Modern CSS reset - https://piccalil.li/blog/a-modern-css-reset/ */
-/* Box sizing rules */
-
-/* *here we have the font dimensions:
-
-* 1. use the picture element to address the
-* b-image issues.
- 
-* 2. Use min-width to address the collapse 
-* issues we keep on seeing.
-
-* 3. Try using negative margins to bring 
-* the purple boxes at the bottom closer 
-* together, to give the page a slightly 
-* more organix appearance. 
-*/
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 :root {
-  font-size: 62.5%;
   --ff1: "League Spartan", sans-serif;
   --sfs: 1.5rem; /* standard font size*/
   --white: hsl(0, 0%, 100%); /*back+text white*/
@@ -119,48 +101,127 @@ select {
   white-space: nowrap !important;
 }
 
-/* *======NEUTRAL DESIGN SPACE========== */
+/* *Universal Styles */
+/* This area is mainly used for 
+colors, padding, fonts etc which
+are used in both the mobile and the 
+desktop area.*/
+
+.desk > .description > h2,
+.desk > .description > p {
+  /* font-family: var(--ff1); */
+}
 .top-left {
   z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
 }
-.heading-area {
-  padding-top: 1rem; 
-  padding-left: 1rem;
+
+.bot-right {
+  position: fixed;
+  z-index: -1;
+  width: 1085px; 
+  height: 673px;
+  bottom: 0;
+  right: 0;
 }
 
-.heading-area > h2 {
-  color: var(--dpt);
-  font-size: 4rem;
-  line-height: 3.6rem;
+/* * the following is for the 
+* picture in the bottom right, 
+* we need to use the picture element 
+* do this successfully, 
+* include it in a footer, inside
+* the body but outside the main.*/
+
+.description > h2 {
+  /* max-width: 320px; */
   font-weight: 700;
+  font-size: clamp(2.5rem, calc(2.5rem + 1vw), 3.2rem);
+  line-height: 40px;
+  letter-spacing: -1.43px;
+  color: var(--dpt);
+}
+
+.description > h2,
+.description > p {
   text-align: center;
 }
 
- .heading-area > p {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1.9rem;
+.desk > .description > p {
   color: var(--lpt);
+  margin: 17px 24px 0px 17px;
+  font-family: var(--ff1);
+  font-size: 19px;
   font-weight: 500;
-  line-height: 2.5rem;
+  line-height: 25px;
+  letter-spacing: -0.6333333253860474px;
+  text-align: center;
 }
 
 .box {
-  width: 32.7rem;
-  height: 24.8rem;
   background-color: #512051;
+  height: 234px;
+  width: 350px;
+}
+
+.review-area {
+  margin: 39px 24px 49px 24px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; 
+  justify-content: center;
+  gap: 14px;
+}
+
+.starlight {
+  height: 5.6rem;
+  width: 45rem;
+  flex-direction: row;
+}
+
+.starlight {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background-color: #ebd8dd;
+  height: 78px;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
-  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.starlight > p {
+  font-family: League Spartan;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--dpt);
+}
+
+.stars > .fa {
+  margin-left: 14px;
+  width: 16px;
+  height: 15px;
+  color: #ef9546;
+  top: 0px;
+  border-radius: 0px;
+}
+
+.box {
+  padding: 28px; 
+  border-radius: 10px; 
+  overflow: hidden;
 }
 
 .box-head {
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .name {
@@ -168,208 +229,152 @@ select {
 }
 
 .box-head > .name > h3 {
-  font-size: 1.7rem;
+  font-size: 17px; 
   color: var(--white);
-  line-height: 1.5rem;
+  line-height: 15px; 
   font-weight: 700;
 }
 
 .box-head > .name > h4 {
-  font-size: 1.7rem;
+  font-size: 17px;
   font-weight: 400;
   color: var(--spt);
-  line-height: 1.5rem;
+  line-height: 15px; 
   margin-top: 0.5rem;
 }
 
 .box > p {
-  color: hsl(0, 0%, 100%);
-  font-size: 1.7rem;
+  font-family: var(--ff1);
+  font-size: 15px;
+  color: var(--white);
   font-weight: 500;
-  line-height: 2.2rem;
-  margin-top: 2rem;
+  line-height: 22px;
+  letter-spacing: -0.3035714328289032px;
+  text-align: left;
+  
 }
 
 .selfie > img {
   border-radius: 50%;
   margin-left: 0.5rem;
 }
-
-.review-area {
-  display: flex;
-  row-gap: 1.5rem;
-  flex-direction: column;
-  margin-top: 4rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.review-area > .review {
-  font-size: 1.7rem;
-  font-weight: 700;
-  text-align: center;
-  height: 7.8rem;
-  color: var(--dpt);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #e5e5e5;
-  border-radius: 1rem;
-}
-.review-area > .review > .stars > span {
-  color: #ef9546;
-  margin-bottom: 1rem;
-}
-
-/* *======MOBILE DESIGN SPACE========== */
+/* *Mobile Layout Area */
 
 @media only screen and (max-width: 1200px) {
   .central-grid {
-    z-index: 999;
-    width: 90%;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 4rem;
-    margin: 3rem auto 0;
-  }
-
-  .central-grid > h2,
-  .central-grid > p {
-    padding: 0 1rem;
-  }
-
-  .central-grid > p {
-    padding-top: 1.7rem;
-    text-align: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .personal-review {
     margin: 0 auto;
+    min-width: 300px;
+    width: 95%;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 300px;
+    padding-top: 62px;
+  }
+
+  .personal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 3rem;
-    row-gap: 1rem;
+    gap: 20px;
   }
 }
+/* end of mobile sized media query*/
 
-/* *======DESKTOP DESIGN SPACE========== */
+/* *Desktop Layout Area */
 
-@media only screen and (min-width: 1200px) {
-  .central-grid {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr .1rem 1fr;
-    
-  }
+@media only screen and (min-width: 1201px) {
   main {
-    margin: 0rem 8rem 0rem 8rem; 
+    min-height: 100vh;
+    display: grid; 
+    place-items: center;
+  }
+  .central-grid {
+    width: 80%; 
+    max-width: 1110px;
+    max-height: 800px;
+    /* padding-top: 60px; */
+
   }
 
-  .person-1 {
-    margin-left: 2rem;
-  }
-
-  .person-3 {
-    margin-right: 3rem;
-  }
-
-  .upper-flex-wrap {
+  .desk {
     display: flex; 
-    margin-top: 2rem;
-    padding-top: 2rem;
-    margin-bottom: 0;
-  }
-
-  .heading-area {
-    flex: 1 1 auto; 
-  }
-
-  .personal-review {
-    max-height: 34rem;
-    padding-bottom: 2rem;
-    display: flex;
-    gap: 1rem;
-    flex-direction: row;
+    height: 55%;
+    /* gap: 11.25%; */
+    /* padding-top: 50px; */
     justify-content: space-between;
-    grid-area: 3 / 1 / 3 / 3;
-    }
-
-  .review-area {
-    flex: 1 1 auto; 
-    margin-top: 0;
-    align-items: center;
-    justify-content: space-evenly;
+    margin-bottom: 60px;
+  }
+  .star {
+    width: 60%;
+    /* outline: 1px solid green; */
+    margin: 0;
+    padding-top: 50px;
+    flex-wrap: nowrap; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start;
   }
 
-  .review-area > .review {
-    height: 5.6rem;
-    width: 45rem;
+  .star > .starlight:nth-child(1) {
+    margin-right: 150px;
+  }
+
+  .star > .starlight:nth-child(3) {
+    margin-left: 150px;
+  }
+
+  .starlight {
+    width: 4500px; 
+    height: 56px;
     flex-direction: row;
+  } 
+
+  .starlight > .stars {
+    margin-right: 12px;
+    margin-bottom: 4px;
   }
 
-  .review-area > .review > .stars {
-    padding-top: 0.35rem;
-    margin-right: 3.25rem;
+  .starlight > .stars > span {
+    margin-left: 3px;
+    font-size: 15px;
+  }
+  /* ! fa-icons absorb the font
+  ! size of the parent element.*/
+  
+  .description {
+    width: 45%;
+    padding-top: 50px;
   }
 
-  .review-area > .review:nth-child(1) {
-    display: flex;
-    align-self: flex-end;
-    justify-self: start;
-    margin-right: 12rem;
-    margin-bottom: -4rem;
-    margin-top: -1.75rem;
+  .description > h2 {
+    max-width: 320px;
+    text-align: left !important; 
   }
 
-  .review-area > .review:nth-child(3) {
-    display: flex;
-    align-self: flex-end;
-    margin-bottom: 0rem;
-    margin-right: 3rem;
+  .description > p {
+    text-align: left !important; 
+    margin-left: 0 !important;
   }
 
-  .review-area > .review:nth-child(2) {
-    display: flex;
-    align-self: flex-end;
-    margin-right: 8rem;
-    margin-bottom: -4rem;
+  .personal {
+    display: flex; 
+    height: 45%;
+    align-items: center;
+    justify-content: center; 
+    gap: 80px;
   }
 
-  .personal-review > article:nth-child(2) {
-    flex-direction: column;
-    align-self: center;
-  }
-  .personal-review > article:nth-child(3) {
-    flex-direction: column;
-    align-self: end;
+  .personal > .box:nth-child(1) {
+    margin-bottom: 40px;;
   }
 
-    .heading-area > h2 {
-    text-align: left;
-    max-width: 44.5rem;
-    font-size: 5.6rem;
-    line-height: 4.8rem;
+  .personal > .box:nth-child(3) {
+    margin-top: 40px;;
   }
 
-    .heading-area > p {
-    text-align: left;
-    line-height: 2.5rem;
-    padding-top: 1.6rem;
-    max-width: 40rem;
-  }
-
-  .graphic-br-mobile {
-    position: fixed;
-    z-index: -1;
-    bottom: 0;
-    right: 0;
-  }
 }

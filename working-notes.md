@@ -8,35 +8,28 @@ We want to take some notes off of the guy on frontend mentor.
 
 Use these notes as basis point. 
 
-1. We need to come up with a plan to complete the background-images. 
-One way, might involve using the picture notes on the kevin powell 
-video. 
-
-If this doesn't work we can try using the method on the fm guys page; 
-who put the images on the background of the body html. 
-
-Clearly, we have two label the pictures properly as the all look the same 
-without being properly named. 
-
-* Mobile
-(Top Left) 
-a
-(Bottom right)
-b
-
-* Desktop
-(Top Left) 
-c
-(Bottom right) 
-d
 
 
 
+ RE-DESIGN THE CORE LAYOUT. 
+
+* Plan: 
+
+As we have already re-designed the core layout using codepen, 
+all we need to do is use these foundations as the core layout. 
+First, re-name the existing html and css docs trash-1 and 
+trash-2. Start again with two new documents. Then, use the 
+trash docs to fill in content where appropriate. Make sure to 
+use the appropriate class-names. 
 
 
 
-2. RE-DESIGN THE CORE LAYOUT. 
+* Check list: 
 
-Keep the core grid layout on both desktop and mobile. However, 
-it may be better to use two side-by-side flex boxes in the 
-upper part. 
+Go through: 
+
+1. Get rid of the font-size root adjustment. 
+2. Change all of the px to rem. 
+3. Make sure that the line heigt is left unitless. 
+4. Go through the fm-notes document + Setia's latest comment, making sure there are no errors. 
+5. Test the html online before posting on fm-mentor. 
